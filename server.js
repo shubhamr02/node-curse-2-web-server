@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');  //handlebars
 const fs = require('fs');
 
+const port = process.env.PORT || 3000; // set the port . To run with heroku and locally
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials') // registerPartials provides a quick way to load all partials from a specific directory:
@@ -76,6 +78,6 @@ app.get('/bad',(req, res) => {
   });
 });
 
-app.listen(3000,() => {
-  console.log('server on port 3000 is up')
+app.listen(port,() => {
+  console.log(`server on port ${port} is up`)
 });
